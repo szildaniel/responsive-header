@@ -1,0 +1,297 @@
+// Override Bootstrap's Sass default variables
+//
+// Nearly all variables in Bootstrap are written with the `!default` flag.
+// This allows you to override the default values of those variables before
+// you import Bootstrap's source Sass files.
+//
+// Overriding the default variable values is the best way to customize your
+// CSS without writing _new_ styles. For example, change you can either change
+// `$body-color` or write more CSS that override's Bootstrap's CSS like so:
+// `body { color: red; }`.
+
+//
+// Bring in Bootstrap
+//
+
+// Option 1
+//
+// Import all of Bootstrap's CSS
+
+// @import "bootstrap/scss/bootstrap";
+
+// Option 2
+//
+// Place variable overrides first, then import just the styles you need. Note that some stylesheets are required no matter what.
+
+// Toggle global options
+$enable-gradients: true;
+$enable-shadows: true;
+
+// Customize some defaults
+$body-color: #333;
+$body-bg: #fff;
+$border-radius: 0.4rem;
+$success: #7952b3;
+
+@import "bootstrap/scss/functions"; // Required
+@import "bootstrap/scss/variables"; // Required
+@import "bootstrap/scss/mixins"; // Required
+
+@import "bootstrap/scss/root"; // Required
+@import "bootstrap/scss/reboot"; // Required
+@import "bootstrap/scss/type";
+// @import "bootstrap/scss/images";
+// @import "bootstrap/scss/code";
+@import "bootstrap/scss/grid";
+// @import "bootstrap/scss/tables";
+// @import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+// @import "bootstrap/scss/dropdown";
+// @import "bootstrap/scss/button-group";
+// @import "bootstrap/scss/input-group"; // Requires forms
+// @import "bootstrap/scss/custom-forms";
+// @import "bootstrap/scss/nav";
+// @import "bootstrap/scss/navbar"; // Requires nav
+// @import "bootstrap/scss/card";
+// @import "bootstrap/scss/breadcrumb";
+// @import "bootstrap/scss/pagination";
+// @import "bootstrap/scss/badge";
+// @import "bootstrap/scss/jumbotron";
+// @import "bootstrap/scss/alert";
+// @import "bootstrap/scss/progress";
+// @import "bootstrap/scss/media";
+// @import "bootstrap/scss/list-group";
+@import "bootstrap/scss/close";
+// @import "bootstrap/scss/toasts";
+@import "bootstrap/scss/modal"; // Requires transitions
+// @import "bootstrap/scss/tooltip";
+// @import "bootstrap/scss/popover";
+// @import "bootstrap/scss/carousel";
+// @import "bootstrap/scss/spinners";
+@import "bootstrap/scss/utilities";
+// @import "bootstrap/scss/print";
+
+//
+// Custom styles
+//
+
+@import "icon-list";
+
+body {
+  margin: 0;
+}
+ul {
+  margin-block-start: 0;
+  padding-inline-start: 0;
+  margin-bottom: 0;
+  margin-block-end: 0;
+}
+.header-top {
+  border-bottom: 1px solid black;
+  &__right > span {
+    margin-left: auto;
+    display: block;
+  }
+  &__breadcrumbs-wrapper {
+    display: flex;
+    align-items: center;
+  }
+}
+.header-bottom {
+  border-bottom: 1px solid black;
+  &__logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+  &__search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__icons {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+.form {
+  border: 1px solid black;
+  display: block;
+  padding: 8px 20px;
+  font-size: 0.8rem;
+
+  &__input-text {
+    border: none;
+    outline: none;
+    min-width: 250px;
+    &::placeholder {
+      color: black;
+      font-size: 0.8rem;
+    }
+  }
+  &__input-submit {
+    background: url("../img/search.svg") no-repeat;
+    background-size: 16px;
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    padding-left: 45px;
+    padding-right: 25px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+}
+
+.icons {
+  &__wrapper {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-left: 1px solid black;
+    width: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+    &:first-of-type {
+      border: none;
+    }
+  }
+  &__title {
+    padding-top: 4px;
+  }
+}
+
+.breadcrumbs {
+  &__item {
+    list-style: none;
+    padding-right: 30px;
+    position: relative;
+    &::after {
+      position: absolute;
+      right: 15px;
+      content: "/";
+    }
+    &:last-of-type {
+      padding-right: 0;
+      &::after {
+        content: "";
+      }
+    }
+  }
+}
+// Style Bootstrap icons
+.bi {
+  fill: blue;
+}
+
+@media only screen and (max-width: 992px) {
+  .header-bottom {
+    position: relative;
+    &__search {
+      position: absolute;
+      visibility: hidden;
+      opacity: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      &.searching {
+        bottom: -39px;
+        transition: bottom 0.2s ease-out;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+  .form {
+    border-top: none;
+  }
+
+  .icons__wrapper {
+    &:last-of-type {
+      padding-right: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .breadcrumbs {
+    &__item {
+      font-size: 0.8rem;
+      padding-right: 20px;
+      &::after {
+        right: 8px;
+      }
+    }
+  }
+  .icons {
+    &__title {
+      font-size: 0.8rem;
+    }
+    &__icon {
+      height: 14px;
+      width: auto;
+      &--cart {
+        height: 16px;
+      }
+    }
+  }
+  .header-top {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    &__right {
+      padding-left: 10px;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .icons {
+    &__wrapper {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    &__title {
+      font-size: 0.8rem;
+    }
+    &__icon {
+      height: 14px;
+      width: auto;
+      &--cart {
+        height: 16px;
+      }
+    }
+  }
+  .header-bottom {
+    &__search {
+      padding: 0;
+    }
+  }
+  .header-top {
+    &__breadcrumbs-wrapper {
+      padding-right: 0;
+    }
+    &__right {
+      padding-left: 5px;
+      font-size: 0.9rem;
+    }
+  }
+  .form {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .header-top {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    &__right {
+      font-size: 0.75rem;
+      padding-left: 0;
+    }
+  }
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/starter.css" />
+    <title>Tebim Header</title>
+    <script src="./assets/js/searchTrigger.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-top d-flex p-sm-1">
+        <div class="col-9 col-md-6 header-top__breadcrumbs-wrapper">
+          <ul class="breadcrumbs d-flex">
+            <li class="breadcrumbs__item">
+              <a href="#" class="breadcrumbs__link">Strefa pomocy</a>
+            </li>
+            <li class="breadcrumbs__item">
+              <a href="#" class="breadcrumbs__link">Strefa wiedzy</a>
+            </li>
+            <li class="breadcrumbs__item">
+              <a href="#" class="breadcrumbs__link">Kontakt</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-3 col-md-6 header-top__right d-flex">
+          <span class="p-sm-1 d-block">Lorem Ipsum</span>
+        </div>
+      </div>
+
+      <div class="header-bottom d-flex p-sm-1">
+        <div class="header-bottom__logo col-6 col-lg-3">LOGO</div>
+        <div class="header-bottom__search col-12 col-lg-6">
+          <form action="" class="form d-block d-flex">
+            <input
+              type="text"
+              placeholder="Wpisz nazwę lub kod produktu"
+              name="search"
+              id="search"
+              class="form__input-text"
+            />
+
+            <input type="submit" value="Szukaj" class="form__input-submit" />
+          </form>
+        </div>
+        <div
+          class="header-bottom__icons d-flex align-items-center col-6 col-lg-3"
+        >
+          <div class="icons__wrapper d-flex flex-column">
+            <img
+              src="./assets/img/heart.svg"
+              alt="Ikona serduszka"
+              class="icons__icon"
+              width="auto"
+              height="20px"
+            />
+            <span class="icons__title">Ulubione</span>
+          </div>
+          <div class="icons__wrapper d-flex flex-column">
+            <img
+              src="./assets/img/user.svg"
+              alt="Ikona użytkownika"
+              class="icons__icon"
+              width="auto"
+              height="20px"
+            />
+            <span class="icons__title">Panel</span>
+          </div>
+          <div class="icons__wrapper d-flex flex-column">
+            <img
+              src="./assets/img/cart.svg"
+              alt="Ikona koszyka"
+              class="icons__icon icons__icon--cart"
+              width="auto"
+              height="23px"
+            />
+            <span class="icons__title">Koszyk</span>
+          </div>
+          <div class="icons__wrapper d-flex flex-column d-lg-none js-search-trigger">
+            <img
+              src="./assets/img/search.svg"
+              alt="Ikona lupy"
+              class="icons__icon"
+              width="auto"
+              height="20px"
+            />
+            <span class="icons__title">Szukaj</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+  </body>
+</html>
